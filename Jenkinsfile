@@ -20,7 +20,7 @@ pipeline{
                 
                 
               
-               deploy adapters: [tomcat9(credentialsId: '9ac4a79f-8f23-4010-a902-b2dce48e0675', path: '', url: '')], contextPath: null, war: '**/*.war'
+           deploy adapters: [tomcat9(credentialsId: '24894b3f-61d7-4206-a0cd-c7bd2599197c', path: '', url: 'http://54.161.190.104:8080/')], contextPath: null, war: '**/*.war'
             }
         }
     }
