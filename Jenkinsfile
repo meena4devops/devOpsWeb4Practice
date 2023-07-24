@@ -17,11 +17,10 @@ pipeline{
         }
         stage ('Deploy to tomcat server') {
             steps{
-                script{
-                    readProp = readProperties file: 'build.properties'
-                }
+                
                 echo "This is running on ${readProp['deploy.type']}"
-                deploy adapters: [tomcat7(credentialsId: '58cccd86-7ec3-4a1a-8dfd-8f664aff0392', path: '', url: 'http://52.66.198.184:8282/')], contextPath: null, war: "**/${readProp['deploy.app.name']}.war"
+                deploy adapters: [tomcat9(credentialsId: 'ee730b51-1f18-46a2-9e1f-064f6a45feb4', path: '', url: 'http://34.239.102.158:8080/')], contextPath: null, war: '**/*.war'
+
             }
         }
     }
