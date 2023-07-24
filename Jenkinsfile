@@ -19,7 +19,7 @@ pipeline{
             steps{
                 
                 echo "This is running on ${readProp['deploy.type']}"
-                deploy adapters: [tomcat10(credentialsId: 'ee730b51-1f18-46a2-9e1f-064f6a45feb4', path: '', url: 'http://34.239.102.158:8080/')], contextPath: null, war: '**/*.war'
+                deploy adapters: [tomcat9(credentialsId: 'ff28cb82-63f0-4b2e-9fb3-62dbc6918cc6', path: '', url: 'http://54.161.190.104:8080/')], contextPath: null, war: '**/*.war'
 
             }
         }
