@@ -1,9 +1,7 @@
 pipeline{
-    agent {
-        label 'linuxagent'
-    }
+    agent any
     tools{
-        maven 'local_maven'
+        maven 'Maven'
     }
     stages{
         stage ('Build'){
@@ -19,8 +17,10 @@ pipeline{
         }
         stage ('Deploy to tomcat server') {
             steps{
+                
+                echo "This is running on ${readProp['deploy.type']}"
+                deploy adapters: [tomcat9(credentialsId: 'ff28cb82-63f0-4b2e-9fb3-62dbc6918cc6', path: '', url: 'http://54.161.190.104:8080/')], contextPath: null, war: '**/*.war'
 
-                echo "Deployment"
             }
         }
     }
